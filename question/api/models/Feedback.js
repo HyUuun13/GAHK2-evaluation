@@ -23,8 +23,7 @@ module.exports = {
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     Evaluation: {
-      collection: "Evaluation",
-      via: "Feedback",
+      model: "Evaluation",
     },
   },
 };
