@@ -32,7 +32,15 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
-   'POST /StoreSurvey/create': 'EvaluationController.create',
-   'POST /StoreSurvey/create': 'FeedbackController.create',
-   'GET /StoreSurvey/json': 'EvaluationController.json',
+   'POST /evaluation/create': 'EvaluationController.create',
+
+   'POST /feedback/create': 'FeedbackController.create',
+
+   'GET /evaluation/json': 'EvaluationController.json',
+
+   'GET /evaluation/read/:id': 'EvaluationController.read',
+
+   'GET /feedback/:id/evaluation': 'FeedbackController.populate',
+
+   'GET /evaluation/:id/feedback': 'EvaluationController.populate',
 };

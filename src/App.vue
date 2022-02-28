@@ -2,17 +2,17 @@
   <div id="app">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">SurveyJS + VueJS</a>
-        </div>
         <ul class="nav navbar-nav">
           <li>
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Evaluation</router-link>
           </li>
           <li>
-            <router-link to="/survey">Survey</router-link>
+            <router-link to="/feedback">Feedback(for writting)</router-link>
           </li>
-          <li>
+           <li>
+            <router-link to="/details">Feedback(for reading)</router-link>
+          </li>
+          <!-- <li>
             <router-link to="/creator">SurveyJS Creator</router-link>
           </li>
           <li>
@@ -28,17 +28,8 @@
             <router-link to="/analyticsdatatables"
               >Results Table (IE Support)</router-link
             >
-          </li>
-          <li>
-            <router-link to="/testDIT">test</router-link>
-          </li>
-          <!-- <li>
-            <router-link to="/bar/baz">/bar/baz</router-link>
-          </li>
-          <li>
-            <router-link to="/a/b/c">/a/b/c</router-link>
-          </li>-->
-        </ul>
+          </li> -->
+         </ul>
       </div>
     </nav>
     <router-view class="view"></router-view>
@@ -48,14 +39,19 @@
 <script>
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Oruga from '@oruga-ui/oruga'
 
 import "bootstrap/dist/css/bootstrap.css";
+import '@oruga-ui/oruga/dist/oruga.css'
 
+Vue.use(Oruga);
 Vue.use(VueRouter);
 
-const Home = () => import("./views/Home.vue");
-const Survey = () =>
-  import(/* webpackChunkName: "survey" */ "./views/Survey.vue");
+const Evaluation = () => import("./views/Evaluation.vue");
+const Feedback = () =>
+  import(/* webpackChunkName: "survey" */ "./views/Feedback.vue");
+  const Details = () =>
+  import(/* webpackChunkName: "survey" */ "./views/Details.vue");
 const Creator = () =>
   import(/* webpackChunkName: "creator" */ "./views/Creator.vue");
 const ExportToPDF = () =>
@@ -66,16 +62,14 @@ const AnalyticsTabulator = () =>
   import(/* webpackChunkName: "creator" */ "./views/AnalyticsTabulator.vue");
 const AnalyticsDatatables = () =>
   import(/* webpackChunkName: "creator" */ "./views/AnalyticsDatatables.vue");
-const testDIY = () =>
-  import(/* webpackChunkName: "creator" */ "./views/testDIY.vue");
 
 const router = new VueRouter({
   mode: "history",
   base: __dirname,
   routes: [
-    { path: "/", component: Home },
+    { path: "/", component: Evaluation },
     // Just use them normally in the route config
-    { path: "/survey", component: Survey },
+    { path: "/feedback", component: Feedback },
     // multiple parameters, `/` should not be encoded. The name is also important
     // https://github.com/vuejs/vue-router/issues/2719
     // { path: '/a/:tags*', name: 'tagged', component: () => new Promise(resolve => {
@@ -95,7 +89,8 @@ const router = new VueRouter({
     { path: "/analytics", component: Analytics },
     { path: "/analyticstabulator", component: AnalyticsTabulator },
     { path: "/analyticsdatatables", component: AnalyticsDatatables },
-    { path: "/testDIY", component: testDIY },
+    { path: "/details", component: Details },
+
   ],
 });
 

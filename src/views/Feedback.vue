@@ -31,7 +31,7 @@ export default {
   },
   data() {
     var json = {
-      title: "Product Feedback Survey Example",
+      title: "Feedback page for user to write",
       showProgressBar: "top",
       pages: [
         {
@@ -99,7 +99,7 @@ export default {
             },
             {
               type: "rating",
-              name: "recommend friends",
+              name: "recommend_friends",
               visibleIf: "{satisfaction} > 3",
               title:
                 "How likely are you to recommend the Product to a friend or co-worker?",
@@ -127,7 +127,7 @@ export default {
       const results = JSON.stringify(sender.data);
       alert(results);
 
-      var response = await fetch("http://localhost:1337/StoreSurvey/create", {
+      var response = await fetch("http://localhost:1337/feedback/create", {
         method: "POST",
         body: JSON.stringify(sender.data)
       });
