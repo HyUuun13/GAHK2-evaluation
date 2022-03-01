@@ -39,6 +39,7 @@ module.exports.routes = {
    'GET /evaluation/json': 'EvaluationController.json',
 
    'GET /evaluation/read/:id': 'EvaluationController.read',
+   'GET /feedback/read/:id': 'FeedbackController.read',
 
    'GET /feedback/:id/evaluation': 'FeedbackController.populate',
 

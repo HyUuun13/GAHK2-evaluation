@@ -21,7 +21,7 @@ module.exports = {
 
     populate: async function (req, res) {
 
-        var evaluation = await Evaluation.findOne(req.params.id).populate("feedback");
+        var evaluation = await Evaluation.find({id: "1"}).populate("feedback");
 
         if (!evaluation) return res.notFound();
 
@@ -31,11 +31,13 @@ module.exports = {
     // action - read
     read: async function (req, res) {
 
-        var thatEvaluation = await Evaluation.find({id: "1"}).populate("Feedback");
-
+        var thatEvaluation = await Evaluation.findOne(req.params.id);
+      
         if (!thatEvaluation) return res.notFound();
 
-       return res.json([thatEvaluation]);
+        console.log(thatEvaluation);
+
+       return res.json(thatEvaluation);
     },
 };
 

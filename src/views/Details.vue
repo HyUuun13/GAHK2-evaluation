@@ -47,7 +47,7 @@ export default {
     };
   },
   mounted() {
-    fetch("http://localhost:1337/evaluation/read/" + this.$route.params.id)
+    fetch("http://localhost:1337/feedback/read/" + "1")
       .then((res) => res.json())
       .then((data) => (this.data = data))
       .catch((err) => console.log(err.message));
