@@ -122,25 +122,26 @@ export default {
     };
   },
 
-  mounted() {
+ mounted() {
     fetch("http://localhost:1337/evaluation/read/" + "2")
       .then((res) => res.json())
-      .then((data) => (this.json = data))
+      .then(
+        (data) => {
+            var model = new SurveyVue.Model(data);
+            model.onComplete.add(this.alertResults);
+            this.survey = model;
+          }
+      )
       .catch((err) => console.log(err.message));
-      console.log(this.json);
   },
 
   methods: {
     async alertResults(sender) {
-      const results = JSON.stringify(sender.data);
-      alert(results);
-
-      sender.data.Evaluation = "1";
+      alert(JSON.stringify(sender.data));
       var response = await fetch("http://localhost:1337/feedback/create", {
         method: "POST",
-        body: JSON.stringify(sender.data),
+        body: JSON.stringify({ Evaluation: 1, data: sender.data }),
       });
-
       if (response.ok) {
         var surveys = await response.text();
         console.log(surveys);
