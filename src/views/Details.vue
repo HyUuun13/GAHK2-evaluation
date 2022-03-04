@@ -18,13 +18,13 @@
         {{ props.row.date }}
       </o-table-column> -->
      <o-table-column field="Quality" label="Quality" v-slot="props">
-        {{ props.row.Quality }}
+        {{ props.row.data.Quality }}
       </o-table-column>
       <o-table-column field="satisfaction" label="satisfaction" v-slot="props">
-        {{ props.row.satisfaction }}
+        {{ props.row.data.satisfaction }}
       </o-table-column>
       <o-table-column field="suggestions" label="suggestions" v-slot="props">
-        {{ props.row.suggestions }}
+        {{ props.row.data.suggestions }}
       </o-table-column>
     </o-table>
   </div>

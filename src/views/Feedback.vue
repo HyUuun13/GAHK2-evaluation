@@ -123,7 +123,7 @@ export default {
   },
 
  mounted() {
-    fetch("http://localhost:1337/evaluation/read/" + "2")
+    fetch("http://localhost:1337/evaluation/read/" + "1")
       .then((res) => res.json())
       .then(
         (data) => {
