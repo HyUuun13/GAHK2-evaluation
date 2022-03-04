@@ -12,10 +12,10 @@
            <li>
             <router-link to="/details">Feedback(for reading)</router-link>
           </li>
-          <!-- <li>
+          <li>
             <router-link to="/creator">SurveyJS Creator</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/exportpdf">PDF Export</router-link>
           </li>
           <li>
